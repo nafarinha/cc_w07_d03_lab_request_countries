@@ -1,10 +1,10 @@
 const PubSub = require('../helpers/pub_sub.js');
 
-const CountryView = function (container) {
+const SelectView = function (container) {
   this.container = container;
 }
 
-CountryView.prototype.bindEvents = function () {
+SelectView.prototype.bindEvents = function () {
   PubSub.subscribe('Countries:countries-loaded', (evt) => {
 
     const allCountries = evt.detail;
@@ -13,13 +13,13 @@ CountryView.prototype.bindEvents = function () {
 
   this.container.addEventListener('change', (evt) => {
     const selectedIndex = evt.target.value;
-    PubSub.publish('CountryView:change', selectedIndex);
+    PubSub.publish('SelectView:change', selectedIndex);
   })
 
 };
 
 
-CountryView.prototype.populate = function (countries) {
+SelectView.prototype.populate = function (countries) {
   countries.forEach( (country, index) => {
     const option = document.createElement('option');
     option.textContent = country.name;
@@ -28,4 +28,4 @@ CountryView.prototype.populate = function (countries) {
   });
 };
 
-module.exports = CountryView;
+module.exports = SelectView;

@@ -7,7 +7,7 @@ const Countries = function() {
 
 Countries.prototype.bindEvents = function () {
 
-  PubSub.subscribe('CountryView:change', (evt) => {
+  PubSub.subscribe('SelectView:change', (evt) => {
     const selectedIndex = evt.detail;
     console.log(selectedIndex);
     this.publishCountryDetail(selectedIndex);

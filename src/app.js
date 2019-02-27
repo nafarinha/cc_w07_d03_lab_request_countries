@@ -1,17 +1,16 @@
 const Countries = require('./models/countries.js');
-const CountryView = require('./views/country_view.js');
+const SelectView = require('./views/select_view.js');
 const CountryInfoView = require('./views/country_info_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
-//DELETE
-  console.log('JavaScript Loaded');
+
   const countries = new Countries();
   countries.getData();
   countries.bindEvents();
 
   const countriesContainer = document.querySelector('#countries');
-  const countryView = new CountryView(countriesContainer);
-  countryView.bindEvents();
+  const selectView = new SelectView(countriesContainer);
+  selectView.bindEvents();
 
   const countryDetailContainer = document.querySelector('#country');
   const countryInfoView = new CountryInfoView(countryDetailContainer);
