@@ -6,15 +6,20 @@ const CountryView = function (container) {
 
 CountryView.prototype.bindEvents = function () {
   PubSub.subscribe('Countries:countries-loaded', (evt) => {
-    this.render(evt.detail);
+
+    const allCountries = evt.detail;
+    this.populate(allCountries);
   });
-}
+};
 
-CountryView.prototype.render = function (countries) {
-  const p = document.createElement('p');
-  p.textContent = countries;
-  this.container.appendChild(p);
-}
+CountryView.prototype.populate = function (countries) {
+  countries.forEach( (country, index) => {
+    const option = document.createElement('option');
+    option.textContent = country.name;
+    option.value = index;
+    this.container.appendChild(option);
 
+  });
+};
 
 module.exports = CountryView;
