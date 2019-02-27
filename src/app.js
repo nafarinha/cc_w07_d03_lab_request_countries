@@ -7,7 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const countries = new Countries();
   countries.getData();
 
-  const countriesContainer = document.querySelector('#country');
+  // const countriesContainer = document.querySelector('#country');
+  // const countryView = new CountryView(countriesContainer);
+  // countryView.bindEvents();
+
+  const countriesContainer = document.querySelector('#countries');
   const countryView = new CountryView(countriesContainer);
   countryView.bindEvents();
 
