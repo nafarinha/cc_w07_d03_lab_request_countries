@@ -3,7 +3,7 @@ const RequestHelper = function (url) {
 };
 
 RequestHelper.prototype.get = function(onComplete) {
-  const xhr = XMLHttpRequest();
+  const xhr = new XMLHttpRequest();
   xhr.open('GET', this.url);
   xhr.setRequestHeader('Accept', 'application/javascript');
 
@@ -13,8 +13,6 @@ RequestHelper.prototype.get = function(onComplete) {
     }
     const jsonString = xhr.responseText;
     const data = JSON.parse(jsonString);
-
-    console.log(data);
 
     onComplete(data);
   });
