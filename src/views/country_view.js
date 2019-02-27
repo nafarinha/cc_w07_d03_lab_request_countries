@@ -18,7 +18,6 @@ CountryView.prototype.populate = function (countries) {
     option.textContent = country.name;
     option.value = index;
     this.container.appendChild(option);
-
   });
 };
 
