@@ -10,7 +10,14 @@ CountryView.prototype.bindEvents = function () {
     const allCountries = evt.detail;
     this.populate(allCountries);
   });
+
+  this.container.addEventListener('change', (evt) => {
+    const selectedIndex = evt.target.value;
+    PubSub.publish('CountryView:change', selectedIndex);
+  })
+
 };
+
 
 CountryView.prototype.populate = function (countries) {
   countries.forEach( (country, index) => {

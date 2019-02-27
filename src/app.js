@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('JavaScript Loaded');
   const countries = new Countries();
   countries.getData();
+  countries.bindEvents();
 
   const countriesContainer = document.querySelector('#countries');
   const countryView = new CountryView(countriesContainer);
